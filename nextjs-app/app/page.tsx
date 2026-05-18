@@ -8,31 +8,31 @@ import { ProductCard } from '@/components/product/ProductCard'
 // Mock featured products (will be replaced with database fetch)
 const FEATURED_PRODUCTS = [
   {
-    id: 'phosphatidylcholine',
-    name: 'Phosphatidylcholine',
-    commonName: 'PC / Lecithin',
-    purity: 99.5,
+    id: 'bpc-157',
+    name: 'BPC-157',
+    commonName: 'Body Protection Compound',
+    purity: 99.8,
     price: 48,
-    sizes: [100, 500, 1000],
-    imageUrl: '/images/products/phosphatidylcholine.png',
+    sizes: [5, 10, 20],
+    imageUrl: '/images/products/bpc-157.png',
   },
   {
-    id: 'phosphatidylserine',
-    name: 'Phosphatidylserine',
-    commonName: 'PS',
-    purity: 99.3,
+    id: 'tb-500',
+    name: 'TB-500',
+    commonName: 'Thymosin Beta-4',
+    purity: 99.5,
     price: 56,
-    sizes: [100, 500, 1000],
-    imageUrl: '/images/products/phosphatidylserine.png',
+    sizes: [5, 10, 20],
+    imageUrl: '/images/products/tb-500.png',
   },
   {
-    id: 'ceramide-c24',
-    name: 'Ceramide C24',
-    commonName: 'N-Lignoceroylsphingosine',
-    purity: 99.7,
+    id: 'sermorelin',
+    name: 'Sermorelin',
+    commonName: 'GHRH (1-29)',
+    purity: 99.2,
     price: 68,
-    sizes: [50, 100, 250],
-    imageUrl: '/images/products/ceramide-c24.png',
+    sizes: [2, 5, 10],
+    imageUrl: '/images/products/sermorelin.png',
   },
 ]
 
@@ -126,12 +126,12 @@ export default function HomePage() {
                   animation: 'pulse 2s ease-in-out infinite',
                 }}
               >
-                Lipids
+                Peptides
               </span>
             </h1>
             
             <p className="text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: '#9AA8BC' }}>
-              Verified purity with comprehensive COAs. Phospholipids, ceramides, and specialized lipid compounds. 
+              Verified purity with comprehensive COAs. BPC-157, TB-500, and specialized research peptides. 
               Self-custody cryptocurrency payments accepted.
             </p>
             
@@ -251,7 +251,7 @@ export default function HomePage() {
                 Featured
               </div>
               <h2 className="font-bold mb-3" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#0E1B2C' }}>
-                Most Popular Research Lipids
+                Most Popular Research Peptides
               </h2>
               <p className="max-w-xl" style={{ color: '#4A5667' }}>
                 Verified purity, comprehensive documentation, and guaranteed quality for your research needs.
@@ -309,7 +309,7 @@ export default function HomePage() {
               Ready to Start Your Research?
             </h2>
             <p className="text-xl mb-10 leading-relaxed" style={{ color: '#9AA8BC' }}>
-              Browse our complete catalog of research-grade lipids with verified purity and comprehensive documentation.
+              Browse our complete catalog of research-grade peptides with verified purity and comprehensive documentation.
             </p>
             <Link 
               href="/shop" 
