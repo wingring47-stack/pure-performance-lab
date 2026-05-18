@@ -183,38 +183,6 @@ html {
   box-shadow: 0 24px 48px rgba(14, 27, 44, 0.12);
 }
 
-/* Button styles */
-.btn-primary {
-  @apply px-8 py-4 bg-navy text-white font-semibold rounded-lg transition-all duration-300;
-  @apply hover:bg-navy-2 hover:shadow-xl hover:-translate-y-1;
-  @apply active:translate-y-0;
-}
-
-.btn-secondary {
-  @apply px-8 py-4 bg-white text-navy font-semibold rounded-lg border-2 border-navy;
-  @apply transition-all duration-300;
-  @apply hover:bg-navy hover:text-white hover:shadow-xl hover:-translate-y-1;
-  @apply active:translate-y-0;
-}
-
-/* Badge styles */
-.badge {
-  @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold;
-  @apply transition-all duration-300;
-}
-
-.badge-success {
-  @apply bg-green-100 text-green-700 border border-green-200;
-}
-
-.badge-warning {
-  @apply bg-yellow-100 text-yellow-700 border border-yellow-200;
-}
-
-.badge-info {
-  @apply bg-blue-100 text-blue-700 border border-blue-200;
-}
-
 /* Focus styles */
 input:focus,
 textarea:focus,
@@ -265,15 +233,4 @@ select:focus {
 
 .ripple:active::after {
   animation: ripple 0.6s ease-out;
-}
-
-/* Tooltip */
-.tooltip {
-  @apply absolute invisible opacity-0 transition-all duration-200;
-  @apply bg-navy text-white text-xs py-2 px-3 rounded;
-  @apply -top-10 left-1/2 -translate-x-1/2;
-}
-
-.tooltip-trigger:hover .tooltip {
-  @apply visible opacity-100;
 }
