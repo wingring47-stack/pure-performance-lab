@@ -43,16 +43,10 @@ export function Navigation() {
                 Shop
               </Link>
               <Link 
-                href="/shop" 
+                href="/track" 
                 className="px-4 py-2 text-sm font-medium text-text-2 hover:text-navy hover:bg-bg rounded transition"
               >
-                Catalog
-              </Link>
-              <Link 
-                href="/about" 
-                className="px-4 py-2 text-sm font-medium text-text-2 hover:text-navy hover:bg-bg rounded transition"
-              >
-                About
+                Track Order
               </Link>
             </div>
 
@@ -81,12 +75,7 @@ export function Navigation() {
                 )}
               </button>
 
-              <Link 
-                href="/account" 
-                className="ml-2 px-4 py-2 text-sm font-medium bg-navy text-white rounded hover:bg-navy-2 transition"
-              >
-                Account
-              </Link>
+
             </div>
           </div>
         </div>
