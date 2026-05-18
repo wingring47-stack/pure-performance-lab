@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pure Performance Lab — Research-Grade Lipids",
-  description: "Premium research-use lipids with verified COAs. BTC, ETH, Crypto payments accepted.",
+  title: "Pure Performant Labs — Research-Grade Peptides",
+  description: "Premium research-grade peptides with verified COAs. BTC, ETH, Crypto payments accepted.",
 };
 
 export default function RootLayout({

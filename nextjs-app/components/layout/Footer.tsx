@@ -80,7 +80,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex items-center justify-between pt-6 text-xs font-mono text-text-3">
-          <div>© 2026 Pure Performance Lab. All rights reserved.</div>
+          <div>© 2026 Pure Performant Labs. All rights reserved.</div>
           <div className="flex gap-6">
             <Link href="/terms" className="hover:text-white transition">Terms</Link>
             <Link href="/privacy" className="hover:text-white transition">Privacy</Link>
