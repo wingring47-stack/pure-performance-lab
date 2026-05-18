@@ -1,0 +1,53 @@
+🚀 Pure Performance Lab - 部署链接
+
+由于需要 Vercel 认证，请按以下步骤获取链接：
+
+方式 1：Vercel CLI（最快）
+--------------------------
+1. 在终端运行：
+   cd ~/clawd/pure-performance-lab/nextjs-app
+   vercel login
+
+2. 浏览器会打开认证页面，登录后回到终端
+
+3. 运行部署命令：
+   vercel --prod
+
+4. 按提示操作（全部按回车使用默认值）
+
+5. 完成后会显示链接！
+
+
+方式 2：通过 Vercel Web 界面（无需 CLI）
+----------------------------------------
+1. 将代码推送到 GitHub：
+   
+   a. 在 https://github.com/new 创建新仓库
+      - 名称：pure-performance-lab
+      - Public
+      - 不要初始化文件
+   
+   b. 推送代码：
+      cd ~/clawd/pure-performance-lab
+      git remote add origin https://github.com/你的用户名/pure-performance-lab.git
+      git push -u origin main
+
+2. 导入到 Vercel：
+   
+   a. 访问 https://vercel.com/new
+   b. 点击 "Import Git Repository"
+   c. 选择 pure-performance-lab 仓库
+   d. ⚠️ 重要：Root Directory 设置为 "nextjs-app"
+   e. 点击 "Deploy"
+
+3. 等待 30-60 秒，完成！
+
+
+预期链接格式：
+https://pure-performance-lab.vercel.app
+或
+https://pure-performance-lab-[随机字符].vercel.app
+
+
+当前本地预览：
+http://localhost:3000 ✅ (开发服务器运行中)
