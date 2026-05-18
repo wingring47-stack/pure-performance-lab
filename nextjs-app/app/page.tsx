@@ -39,38 +39,96 @@ export default function HomePage() {
     <>
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-navy via-navy-2 to-navy-dark text-text-on-dark relative overflow-hidden border-b border-border-dark">
+      {/* Hero Section - Enhanced with inline styles */}
+      <section 
+        className="relative overflow-hidden border-b border-gray-300"
+        style={{
+          background: 'linear-gradient(135deg, #0E1B2C 0%, #16263B 50%, #0A1018 100%)',
+          color: '#FFFFFF',
+        }}
+      >
         {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
+        <div 
+          className="absolute inset-0"
+          style={{
+            opacity: 0.1,
             backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
             backgroundSize: '48px 48px',
-          }} />
-        </div>
+          }}
+        />
 
         {/* Floating orbs */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div 
+          className="absolute rounded-full blur-3xl"
+          style={{
+            top: '5rem',
+            right: '5rem',
+            width: '16rem',
+            height: '16rem',
+            background: 'oklch(58% 0.06 245)',
+            opacity: 0.2,
+            animation: 'pulse 3s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute rounded-full blur-3xl"
+          style={{
+            bottom: '5rem',
+            left: '5rem',
+            width: '24rem',
+            height: '24rem',
+            background: 'oklch(58% 0.06 245)',
+            opacity: 0.1,
+            animation: 'pulse 3s ease-in-out infinite 1s',
+          }}
+        />
         
         <div className="container mx-auto px-8 py-24 md:py-32 relative z-10 max-w-5xl">
-          <div className="animate-fadeIn">
-            <div className="inline-flex items-center gap-2 font-mono text-xs font-medium tracking-wider uppercase text-text-on-dark-2 px-4 py-2 border border-white/20 rounded-full mb-8 backdrop-blur-sm bg-white/5">
+          <div style={{ animation: 'fadeIn 0.8s ease-out' }}>
+            <div 
+              className="inline-flex items-center gap-2 font-mono text-xs font-medium tracking-wider uppercase px-4 py-2 rounded-full mb-8"
+              style={{
+                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(8px)',
+              }}
+            >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+                <span 
+                  className="absolute inline-flex h-full w-full rounded-full opacity-75"
+                  style={{
+                    background: '#4ade80',
+                    animation: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+                  }}
+                />
+                <span 
+                  className="relative inline-flex rounded-full h-2 w-2"
+                  style={{ background: '#4ade80' }}
+                />
               </span>
               Research Use Only
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
+            <h1 
+              className="font-bold leading-tight tracking-tight mb-6"
+              style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}
+            >
               Premium Research-Grade{' '}
-              <span className="block bg-gradient-to-r from-white via-accent to-white bg-clip-text text-transparent animate-pulse">
+              <span 
+                className="block"
+                style={{
+                  background: 'linear-gradient(90deg, #FFFFFF 0%, oklch(58% 0.06 245) 50%, #FFFFFF 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  animation: 'pulse 2s ease-in-out infinite',
+                }}
+              >
                 Lipids
               </span>
             </h1>
             
-            <p className="text-xl text-text-on-dark-2 mb-10 max-w-2xl leading-relaxed">
+            <p className="text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: '#9AA8BC' }}>
               Verified purity with comprehensive COAs. Phospholipids, ceramides, and specialized lipid compounds. 
               Self-custody cryptocurrency payments accepted.
             </p>
@@ -78,31 +136,63 @@ export default function HomePage() {
             <div className="flex gap-4">
               <Link 
                 href="/shop" 
-                className="group inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent-hover transition shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="group inline-flex items-center justify-center px-8 py-4 font-semibold rounded-lg transition-all"
+                style={{
+                  background: 'oklch(58% 0.06 245)',
+                  color: '#FFFFFF',
+                  boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.2)'
+                }}
               >
                 Browse Catalog
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
               <Link 
                 href="/shop" 
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition border border-white/20 hover:border-white/40"
+                className="inline-flex items-center justify-center px-8 py-4 font-semibold rounded-lg transition-all"
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  backdropFilter: 'blur(8px)',
+                  color: '#FFFFFF',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.2)'
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.1)'
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'
+                }}
               >
                 View COAs
               </Link>
             </div>
             
-            <div className="flex gap-8 mt-16 pt-8 border-t border-white/10">
+            <div className="flex gap-8 mt-16 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
               {[
                 { icon: '🔬', label: 'HPLC Verified', value: '99%+' },
                 { icon: '🔒', label: 'Crypto Payments', value: 'BTC/ETH' },
                 { icon: '📦', label: 'Fast Shipping', value: '24h' },
               ].map((stat, i) => (
-                <div key={i} className="animate-fadeIn" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div 
+                  key={i} 
+                  style={{ 
+                    animation: `fadeIn 0.5s ease-out ${i * 0.1}s both`,
+                  }}
+                >
                   <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-sm text-text-on-dark-2">{stat.label}</div>
-                  <div className="text-lg font-mono font-bold text-white">{stat.value}</div>
+                  <div className="text-sm" style={{ color: '#9AA8BC' }}>{stat.label}</div>
+                  <div className="text-lg font-mono font-bold">{stat.value}</div>
                 </div>
               ))}
             </div>
@@ -111,20 +201,32 @@ export default function HomePage() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-white border-b border-border shadow-sm">
+      <section className="bg-white border-b" style={{ borderColor: '#E3E7EB', boxShadow: '0 1px 2px rgba(14,27,44,0.04)' }}>
         <div className="container mx-auto px-8">
-          <div className="grid grid-cols-4 divide-x divide-border">
+          <div className="grid grid-cols-4 divide-x" style={{ borderColor: '#E3E7EB' }}>
             {[
               { icon: '🔬', title: 'Lab Tested', desc: 'HPLC + MS verified' },
               { icon: '🔒', title: 'Secure Payment', desc: 'BTC, ETH, XMR' },
               { icon: '📦', title: 'Discrete Ship', desc: 'US-only, fast' },
               { icon: '✓', title: 'Full COAs', desc: 'Every batch' },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 px-7 py-7 hover:bg-bg transition group">
-                <div className="text-4xl group-hover:scale-110 transition-transform">{item.icon}</div>
+              <div 
+                key={i} 
+                className="flex items-center gap-4 px-7 py-7 transition-all cursor-pointer"
+                style={{ background: '#FFFFFF' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#F4F6F8'
+                  e.currentTarget.querySelector('.emoji')!.setAttribute('style', 'transform: scale(1.1); transition: transform 0.2s')
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#FFFFFF'
+                  e.currentTarget.querySelector('.emoji')!.setAttribute('style', 'transform: scale(1); transition: transform 0.2s')
+                }}
+              >
+                <div className="emoji text-4xl" style={{ transition: 'transform 0.2s' }}>{item.icon}</div>
                 <div>
-                  <div className="font-semibold text-navy mb-1">{item.title}</div>
-                  <div className="text-sm font-mono text-text-3">{item.desc}</div>
+                  <div className="font-semibold mb-1" style={{ color: '#0E1B2C' }}>{item.title}</div>
+                  <div className="text-sm font-mono" style={{ color: '#7B8696' }}>{item.desc}</div>
                 </div>
               </div>
             ))}
@@ -133,27 +235,35 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-bg to-white">
+      <section 
+        className="py-20 md:py-28"
+        style={{
+          background: 'linear-gradient(180deg, #F4F6F8 0%, #FFFFFF 100%)',
+        }}
+      >
         <div className="container mx-auto px-8">
-          <div className="flex items-end justify-between mb-12 animate-fadeIn">
+          <div className="flex items-end justify-between mb-12" style={{ animation: 'fadeIn 0.5s ease-out' }}>
             <div>
-              <div className="font-mono text-xs font-medium tracking-wider uppercase text-accent mb-3 flex items-center gap-2">
-                <div className="w-8 h-px bg-accent" />
+              <div className="font-mono text-xs font-medium tracking-wider uppercase mb-3 flex items-center gap-2" style={{ color: 'oklch(58% 0.06 245)' }}>
+                <div style={{ width: '2rem', height: '1px', background: 'oklch(58% 0.06 245)' }} />
                 Featured
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-navy mb-3">
+              <h2 className="font-bold mb-3" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', color: '#0E1B2C' }}>
                 Most Popular Research Lipids
               </h2>
-              <p className="text-text-2 max-w-xl">
+              <p className="max-w-xl" style={{ color: '#4A5667' }}>
                 Verified purity, comprehensive documentation, and guaranteed quality for your research needs.
               </p>
             </div>
             <Link 
               href="/shop" 
-              className="group text-navy font-semibold hover:text-accent transition flex items-center gap-2"
+              className="group font-semibold flex items-center gap-2 transition-colors"
+              style={{ color: '#0E1B2C' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'oklch(58% 0.06 245)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#0E1B2C'}
             >
               View All
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
@@ -163,8 +273,9 @@ export default function HomePage() {
             {FEATURED_PRODUCTS.map((product, i) => (
               <div 
                 key={product.id} 
-                className="animate-fadeIn"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                style={{ 
+                  animation: `fadeIn 0.5s ease-out ${i * 0.1}s both`,
+                }}
               >
                 <ProductCard product={product} />
               </div>
@@ -173,91 +284,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 md:py-28 bg-white border-y border-border">
-        <div className="container mx-auto px-8">
-          <div className="text-center mb-16 animate-fadeIn">
-            <div className="font-mono text-xs font-medium tracking-wider uppercase text-accent mb-3">
-              Why Choose Us
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-              Pure Performance Lab
-            </h2>
-            <p className="text-text-2 max-w-2xl mx-auto">
-              Setting the standard for research-grade lipids with uncompromising quality and transparency.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                num: '01',
-                icon: '🔬',
-                title: 'Third-Party Verified',
-                desc: 'Every batch tested by independent labs with full HPLC, MS, and sterility reports.',
-              },
-              {
-                num: '02',
-                icon: '🔐',
-                title: 'Cryptocurrency Native',
-                desc: 'Self-custody payments via BTC, ETH, XMR, Lightning. No intermediaries.',
-              },
-              {
-                num: '03',
-                icon: '📚',
-                title: 'Research Focused',
-                desc: 'Strict RUO compliance. Products are for qualified researchers only.',
-              },
-              {
-                num: '04',
-                icon: '⚡',
-                title: 'Fast & Discrete',
-                desc: 'Ships within 24h to US addresses. Plain packaging, no branding.',
-              },
-            ].map((item, i) => (
-              <div 
-                key={item.num} 
-                className="group relative p-8 rounded-xl border border-border hover:border-accent transition hover:shadow-xl bg-gradient-to-br from-white to-bg animate-fadeIn"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                <div className="absolute top-4 right-4 text-6xl opacity-5 group-hover:opacity-10 transition">
-                  {item.icon}
-                </div>
-                <div className="font-mono text-xs text-accent mb-4 font-semibold">{item.num}</div>
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-accent transition">
-                  {item.title}
-                </h3>
-                <p className="text-text-2 text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-navy via-navy-2 to-navy-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #0E1B2C 0%, #16263B 50%, #0A1018 100%)',
+          color: '#FFFFFF',
+        }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            opacity: 0.1,
             backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
             backgroundSize: '48px 48px',
-          }} />
-        </div>
+          }}
+        />
 
         <div className="container mx-auto px-8 text-center relative z-10 max-w-3xl">
-          <div className="animate-fadeIn">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div style={{ animation: 'fadeIn 0.8s ease-out' }}>
+            <h2 className="font-bold mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
               Ready to Start Your Research?
             </h2>
-            <p className="text-xl text-text-on-dark-2 mb-10 leading-relaxed">
+            <p className="text-xl mb-10 leading-relaxed" style={{ color: '#9AA8BC' }}>
               Browse our complete catalog of research-grade lipids with verified purity and comprehensive documentation.
             </p>
             <Link 
               href="/shop" 
-              className="inline-flex items-center justify-center px-10 py-5 bg-accent text-white font-bold text-lg rounded-lg hover:bg-accent-hover transition shadow-2xl hover:shadow-accent/50 hover:-translate-y-1 group"
+              className="group inline-flex items-center justify-center px-10 py-5 font-bold text-lg rounded-lg transition-all"
+              style={{
+                background: 'oklch(58% 0.06 245)',
+                color: '#FFFFFF',
+                boxShadow: '0 20px 48px rgba(0,0,0,0.3)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 24px 56px rgba(0,0,0,0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 20px 48px rgba(0,0,0,0.3)'
+              }}
             >
               Browse Catalog
-              <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
@@ -266,6 +336,35 @@ export default function HomePage() {
       </section>
 
       <Footer />
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes ping {
+          75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </>
   )
 }
