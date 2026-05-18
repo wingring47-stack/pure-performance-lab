@@ -30,11 +30,8 @@ export default function ShopPage() {
   }
 
   const categories = [
-    { id: 'all', label: 'All Products', count: products.length },
-    { id: 'phospholipids', label: 'Phospholipids', count: 3 },
-    { id: 'ceramides', label: 'Ceramides', count: 1 },
-    { id: 'sphingolipids', label: 'Sphingolipids', count: 1 },
-    { id: 'gangliosides', label: 'Gangliosides', count: 1 },
+    { id: 'all', label: 'All Peptides', count: products.length },
+    { id: 'peptides', label: 'Research Peptides', count: 6 },
   ]
 
   return (
@@ -42,7 +39,7 @@ export default function ShopPage() {
       <Navigation />
 
       <div className="bg-ink text-white text-center text-sm py-2.5 sticky top-16 z-40 border-b border-black">
-        <span className="text-yellow-400">🎯</span> Free shipping over $200 · BTC/ETH accepted
+        <span className="text-yellow-400">🎯</span> Free shipping over $200 · BTC/ETH/XMR accepted
       </div>
 
       <div className="container mx-auto px-8 py-6">
@@ -51,70 +48,50 @@ export default function ShopPage() {
           <span>/</span>
           <span className="text-navy font-medium">Shop</span>
         </nav>
-      </div>
 
-      <div className="container mx-auto px-8 pb-24">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-baseline justify-between mt-6 mb-8">
           <div>
-            <h1 className="text-4xl font-semibold text-navy">Research Lipid Catalog</h1>
-            <p className="font-mono text-sm text-text-3 mt-2">
-              {products.length} products · All with verified COAs
-            </p>
+            <h1 className="text-4xl font-semibold text-navy mb-2">Research Peptides</h1>
+            <p className="text-text-2">Premium quality, verified purity, comprehensive COAs.</p>
           </div>
-
-          <select className="px-4 py-2 border border-border rounded text-sm font-medium">
-            <option>Sort by: Newest</option>
-            <option>Sort by: Price (Low-High)</option>
-            <option>Sort by: Price (High-Low)</option>
-            <option>Sort by: Name (A-Z)</option>
-          </select>
         </div>
 
         <div className="flex gap-8">
           {/* Filters Sidebar */}
-          <aside className="w-60 flex-shrink-0 sticky top-32 self-start">
-            <div className="bg-bg-surface border border-border rounded-lg p-1">
-              <div className="p-4 border-b border-border">
-                <h5 className="font-mono text-xs font-semibold tracking-wider uppercase text-text-3">
+          <aside className="w-56 flex-shrink-0">
+            <div className="sticky top-32">
+              <div className="mb-6">
+                <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3">
                   Category
-                </h5>
+                </h3>
+                <div className="space-y-2">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setCategory(cat.id === 'all' ? null : cat.id)}
+                      className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded transition ${
+                        (category === cat.id || (!category && cat.id === 'all'))
+                          ? 'bg-navy text-white font-medium'
+                          : 'text-text-2 hover:bg-bg'
+                      }`}
+                    >
+                      <span>{cat.label}</span>
+                      <span className="font-mono text-xs">{cat.count}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <div className="p-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setCategory(cat.id === 'all' ? null : cat.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded text-sm transition ${
-                      (cat.id === 'all' && !category) || category === cat.id
-                        ? 'bg-bg text-navy font-medium'
-                        : 'text-text-2 hover:bg-bg hover:text-navy'
-                    }`}
-                  >
-                    <span>{cat.label}</span>
-                    <span className="font-mono text-xs text-text-3">{cat.count}</span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="p-4 border-t border-border">
-                <h5 className="font-mono text-xs font-semibold tracking-wider uppercase text-text-3 mb-3">
-                  Purity
-                </h5>
-                <label className="flex items-center justify-between text-sm cursor-pointer">
-                  <span className="text-text-2">99%+ only</span>
-                  <input type="checkbox" className="w-4 h-4" />
-                </label>
-              </div>
-
-              <div className="p-4 border-t border-border">
-                <h5 className="font-mono text-xs font-semibold tracking-wider uppercase text-text-3 mb-3">
-                  Availability
-                </h5>
-                <label className="flex items-center justify-between text-sm cursor-pointer">
-                  <span className="text-text-2">In stock</span>
-                  <input type="checkbox" className="w-4 h-4" defaultChecked />
-                </label>
+              <div className="pt-6 border-t border-border">
+                <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3">
+                  Sort By
+                </h3>
+                <select className="w-full px-3 py-2 border border-border rounded text-sm">
+                  <option>Featured</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Name: A to Z</option>
+                </select>
               </div>
             </div>
           </aside>
@@ -122,17 +99,37 @@ export default function ShopPage() {
           {/* Products Grid */}
           <div className="flex-1">
             {loading ? (
-              <div className="text-center py-24 text-text-3">Loading products...</div>
-            ) : products.length === 0 ? (
-              <div className="text-center py-24 text-text-3">
-                No products found. Database needs seeding.
-              </div>
-            ) : (
-              <div className="grid grid-cols-3 gap-5">
-                {products.map((product: any) => (
-                  <ProductCard key={product.id} product={product} />
+              <div className="grid grid-cols-3 gap-6">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="aspect-[4/5] bg-gray-100 rounded-lg animate-pulse" />
                 ))}
               </div>
+            ) : (
+              <>
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-sm text-text-3">
+                    {products.length} product{products.length !== 1 ? 's' : ''}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-6">
+                  {products.map((product: any) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+
+                {products.length === 0 && (
+                  <div className="text-center py-20">
+                    <p className="text-text-3 mb-4">No products found in this category.</p>
+                    <button
+                      onClick={() => setCategory(null)}
+                      className="text-accent hover:underline"
+                    >
+                      View all products
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
